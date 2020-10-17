@@ -1,0 +1,8 @@
+{
+  "headers": {
+    "/*": {
+      "X-Author": "yuriiitymchenko",
+      "Access-Control-Allow-Origin": "*"
+    }
+  }
+}
