@@ -4,6 +4,9 @@
       "X-Author": "yuriiitymchenko",
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "text/plain: charset=UTF-8"
+    },
+    "/sample/**": {
+      "Content-Type": "text/plain: charset=UTF-8"
     }
   }
 }
