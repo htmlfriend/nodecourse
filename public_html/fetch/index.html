@@ -8,26 +8,25 @@
 </head>
 
 <body>
-	<input type="text" name="text" id="inp">
-	<button type="button" id="bt">Click</button>
+	<input id="inp" type="text">
+	<button id="bt" onclick="getFetch()">Отправить</button>
+</body>
 
-	<script>
-		let input = document.querySelector("#inp");
-		let btn = document.querySelector('#bt');
-		async function getData() {
-			let value = input.value;
-			console.log('value', value)
-			await fetch(value)
-				.then((res) => res.text())
-				.then((v) => input.value = v)
-				.catch((e) => console.log(e));
-		}
+<script>
 
-		btn.addEventListener('click', e => {
-			e.preventDefault();
-			getData();
-		})
-	</script>
+	async function getFetch() {
+
+		let adress = document.getElementById("inp").value;
+
+		await fetch(adress)
+			.then((response) => {
+				response.text().then(function (text) {
+					document.getElementById("inp").value = text;
+				}
+				);
+			})
+	}
+</script>
 
 </body>
 
