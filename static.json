@@ -16,7 +16,7 @@
     "/fetch/*": {
       "X-Author": "yuriiitymchenko",
       "Access-Control-Allow-Origin": "*",
-      "Content-Type": "text/plain; charset=UTF-8",
+      "Content-Type": "text/html; charset=utf-8",
       "X-Reply": "openedu"
     },
     "/promise/*": {
