@@ -1,0 +1,23 @@
+{
+  "encoding": "UTF-8",
+  "headers": {
+    "/*": {
+      "X-Author": "yuriiitymchenko",
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/html; charset=UTF-8",
+      "X-Reply": "openedu"
+    },
+    "/sample/*": {
+      "X-Author": "yuriiitymchenko",
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8",
+      "X-Reply": "openedu"
+    },
+    "/login/*": {
+      "X-Author": "yuriiitymchenko",
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8",
+      "X-Reply": "openedu"
+    }
+  }
+}
