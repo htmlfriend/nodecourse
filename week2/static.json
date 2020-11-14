@@ -1,0 +1,20 @@
+{
+  "encoding": "UTF-8",
+  "headers": {
+    "/*": {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/html; charset=UTF-8",
+      "X-Reply": "openedu"
+    },
+    "/sample/*": {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8",
+      "X-Reply": "openedu"
+    },
+    "/login/*": {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8",
+      "X-Reply": "openedu"
+    }    
+  }    
+}
