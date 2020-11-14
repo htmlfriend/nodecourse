@@ -14,15 +14,18 @@
 
 <script>
 
-	let address = document.querySelector('#inp');
+
 	async function getFetch() {
 
+		let adress = document.getElementById("inp").value;
 
-		let response = await fetch(address.value);
-		let data = await response.text();
-
-		address.value = data;
-
+		await fetch(adress)
+			.then((response) => {
+				response.text().then(function (text) {
+					document.getElementById("inp").value = text;
+				}
+				);
+			})
 	}
 </script>
 
