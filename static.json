@@ -18,6 +18,18 @@
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "text/plain; charset=UTF-8",
       "X-Reply": "openedu"
+    },
+    "/fetch/*": {
+      "X-Author": "yuriiitymchenko",
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8",
+      "X-Reply": "openedu"
+    },
+    "/promise/*": {
+      "X-Author": "yuriiitymchenko",
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8",
+      "X-Reply": "openedu"
     }
   }
 }
