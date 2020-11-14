@@ -1,5 +1,2 @@
 function task(x) {
-
-let promise = new Promise((resolve, reject) => {
-
-if(x < 18) { resolve('yes'); } else { reject('no'); } }) return promise; }
+let message = x < 18 ? 'eye' : 'no' ; return Promise.resolve(message); }
