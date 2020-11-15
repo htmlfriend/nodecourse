@@ -7,22 +7,30 @@
       "Content-Type": "text/plain; charset=UTF-8",
       "X-Reply": "openedu"
     },
-    "/login/": {
+    "/login/*": {
       "X-Author": "yuriiitymchenko",
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "text/plain; charset=UTF-8",
       "X-Reply": "openedu"
     },
-    "/fetch/": {
+    "/fetch/*": {
       "X-Author": "yuriiitymchenko",
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "text/html; charset=utf-8",
       "X-Reply": "openedu"
     },
-    "/promise/": {
+    "/promise/*": {
       "X-Author": "yuriiitymchenko",
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "text/plain; charset=UTF-8",
+      "X-Reply": "openedu"
+    },
+    "/result/*": {
+      "X-Author": "yuriiitymchenko",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
+      "Access-Control-Allow-Headers": "x-test,Content-Type,Accept,Access-Control-Allow-Headers",
+      "Content-Type": "application/json",
       "X-Reply": "openedu"
     }
   }
