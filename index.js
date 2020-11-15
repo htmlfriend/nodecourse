@@ -1,21 +1,41 @@
-// function task(x) {
-//   let promise = new Promise((resolve, reject) => {
-//     if (x < 18) {
-//       let success = 'yes';
-//       resolve(success);
-//     } else {
-//       let fail = new Error('no');
-//       reject(fail);
-//     }
-//   });
-//   let result = function () {
-//     promise.then((full) => full).catch((err) => err);
-//   };
-//   result();
-// }
-const promisify = (func) => (...args) =>
-  new Promise((resolve, reject) =>
-    func(...args, (err, result) => (err ? reject(err) : resolve(result)))
-  );
-const delay = promisify((d, cb) => setTimeout(cb, d));
-delay(2000).then(() => console.log('Hi!'));
+const [{ Server: h1 }, x] = [require('http'), require('express')];
+
+const Router = x.Router();
+const PORT = 4321;
+const { log } = console;
+const hu = { 'Content-Type': 'text/html; charset=utf-8' };
+const app = x();
+const mw0 = (r, rs, n) => rs.status(200).set(hu) && n();
+Router.route('/').get((r) => r.res.end('I am happy to see you again!'));
+app
+  .use(mw0)
+  .use(function workingSetter(req, res, next) {
+    req.working = 'Работает, ура!';
+    next();
+  })
+  .use(x.static('.'))
+  .use('/', Router)
+  .get('/first', (req, res, next) => {
+    req.app._router.stack.forEach((mw) => console.log(mw.name));
+    if (req.query.error == 'yes') return next();
+    res.send(req.working);
+  })
+  .use((req, res, next) => {
+    req.errorMessage = 'Всё ещё нет';
+    next();
+  })
+  .use((r) => r.res.status(404).set(hu).send(r.errorMessage))
+  .use((e, r, rs, n) => rs.status(500).set(hu).send(`Ошибка: ${e}`))
+  /* .set('view engine', 'pug') */
+  .set('x-powered-by', false);
+module.exports = h1(app).listen(process.env.PORT || PORT, () =>
+  log(process.pid)
+);
+
+/*
+для варианта с type="module"
+import { Server } from 'http';
+import x from 'express';
+и в предпоследней строке
+export default Server(app)
+*/
