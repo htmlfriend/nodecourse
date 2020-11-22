@@ -1,12 +1,17 @@
 const [{ Server: h1 }, x] = [require('http'), require('express')];
 
+const ApiRouter = require('./routes/api');
+const Api2Router = require('./routes/api2');
+
 const Router = x.Router();
 const PORT = 5555;
 const { log } = console;
 const hu = { 'Content-Type': 'text/html; charset=utf-8' };
 const app = x();
 const mw0 = (r, rs, n) => rs.status(200).set(hu) && n();
+
 Router.route('/').get((r) => r.res.end('I am happy to see you again!'));
+
 app
   .use(mw0)
   .use(function workingSetter(req, res, next) {
@@ -15,6 +20,8 @@ app
   })
   .use(x.static('.'))
   .use('/', Router)
+  .use('/api', ApiRouter(x))
+  .use('/api2', Api2Router(x))
   .get('/first', (req, res, next) => {
     req.app._router.stack.forEach((mw) => console.log(mw.name));
     if (req.query.error == 'yes') return next();
