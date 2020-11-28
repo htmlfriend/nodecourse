@@ -7,8 +7,8 @@ module.exports = (x) => {
     .get((r) => {
       let sum = Number(r.params.n1) + Number(r.params.n2);
       r.res.format({
+        'application/json': () => r.res.json({ result: 'Working well' }),
         'text/html': r.res.send(`<h2>Got: ${sum}</h2>`),
-        'application/json': () => r.res.json({ Got: sum }),
       });
     })
     .post((r) =>
@@ -19,5 +19,6 @@ module.exports = (x) => {
     .route('/multy/:n1/:n2')
     .get((r) => r.res.send(`Got : ` + r.params.n1 * r.params.n2))
     .post((r) => r.res.send(`Posted : ` + r.params.n1 * r.params.n2));
+
   return router;
 };
