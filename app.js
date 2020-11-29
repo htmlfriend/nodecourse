@@ -29,7 +29,7 @@ function myFunc(express, bodyParser, fs, crypto, http) {
 
     .get('/login/', (req, res) => res.send('yuriiitymchenko'))
     .get('/code/', (req, res) => {
-      let filename = import.meta.url.substring(8);
+      let filename = import.meta.url.substring(7);
       fs.createReadStream(filename).pipe(res);
     });
 
