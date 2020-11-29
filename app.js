@@ -24,7 +24,7 @@ function myFunc(express, bodyParser, createReadStream, crypto, http) {
 
     .get('/login/', (req, res) => res.send('yuriiitymchenko'))
     .get('/code/', (req, res) => {
-      let filename = import.meta.url.substring(8);
+      let filename = import.meta.url.substring(7);
       createReadStream(filename).pipe(res);
     });
 
