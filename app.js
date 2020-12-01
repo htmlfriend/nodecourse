@@ -9,7 +9,6 @@ export default (
   CORS
 ) => {
   const app = express();
-
   app
     .use((req, res, next) => {
       res.set(CORS);
@@ -35,13 +34,13 @@ export default (
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
+
+      const newUser = new User({ login, password });
+      await newUser.save();
+      res.status(201).send(`User was saved with login ${login}`);
     } catch (e) {
       res.send(e.codeName);
     }
-
-    const newUser = new User({ login, password });
-    await newUser.save();
-    res.status(201).send(`User was saved with login ${login}`);
   });
 
   app.all('/req/', (req, res) => {

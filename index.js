@@ -6,8 +6,9 @@ import http from 'http';
 import mongoose from 'mongoose';
 import myFunc from './app.js';
 import CORS from './CORS.js';
-import User from './models/User.js';
+import UserModel from './models/User.js';
 
+const User = UserModel(mongoose);
 const app = myFunc(
   express,
   bodyParser,
