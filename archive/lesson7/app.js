@@ -1,3 +1,6 @@
+import dot from 'dotenv';
+
+dot.config({ path: './.env' });
 export default (
   express,
   bodyParser,
@@ -15,10 +18,9 @@ export default (
       next();
     })
     .use(bodyParser.urlencoded({ extended: true }))
-    .get('/users/:url', async (req, res) => {
-      const URL = req.body.URL;
+    .get('/users', async (req, res) => {
       try {
-        await mongoose.connect(URL, {
+        await mongoose.connect(process.env.MONGO_URI, {
           useNewUrlParser: true,
           useUnifiedTopology: true,
         });
@@ -60,15 +62,6 @@ export default (
       res.send(e.codeName);
     }
   });
-
-  app
-    .post('/render', (req, res) => {
-      const data = req.body;
-      const url = req.params.addr;
-      console.log('data', data);
-      res.render('index', { data });
-    })
-    .set('view engine', 'pug');
 
   app.all('/req/', (req, res) => {
     let url = req.method === 'POST' ? req.body.addr : req.query.addr;
